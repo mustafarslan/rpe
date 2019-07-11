@@ -2,18 +2,26 @@ import json
 import sys, getopt, os
 import pandas as pd
 from flask import Flask
-from pandas.io.json import json_normalize
+from pymongo import MongoClient
 
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../rpe'))
 if not path in sys.path:
     sys.path.insert(1, path)
 
 app = Flask(__name__)
+mongoClient = MongoClient('localhost', 27017)
+
+
+def create_db(frame):
+    db = mongoClient["sample_database"]
+    col = db["sample_collection"]
 
 
 def read_json():
     dataframe = pd.read_json('resources/sample.json', lines=True)
+    print(dataframe.size)
     print(dataframe.head(1).datePublishedObject)
+    create_db(dataframe)
 
 
 def main(argv):
