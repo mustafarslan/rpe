@@ -1,2 +1,2 @@
 # rpe
-Rest API Performance Experiment with Golang
+Rest API Performance Experiment
