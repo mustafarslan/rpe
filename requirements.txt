@@ -1,2 +1,5 @@
 pymongo
 Flask
+pandas
+tqdm
+flask-cors

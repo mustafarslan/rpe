@@ -1,27 +1,17 @@
-import json
 import sys, getopt, os
-import pandas as pd
 from flask import Flask
-from pymongo import MongoClient
+from flask_cors import CORS
+from blueprints.database_blueprint import database_blueprint
+from blueprints.client_blueprint import client_blueprint
 
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../rpe'))
 if not path in sys.path:
     sys.path.insert(1, path)
 
 app = Flask(__name__)
-mongoClient = MongoClient('localhost', 27017)
-
-
-def create_db(frame):
-    db = mongoClient["sample_database"]
-    col = db["sample_collection"]
-
-
-def read_json():
-    dataframe = pd.read_json('resources/sample.json', lines=True)
-    print(dataframe.size)
-    print(dataframe.head(1).datePublishedObject)
-    create_db(dataframe)
+CORS(app)
+app.register_blueprint(database_blueprint)
+app.register_blueprint(client_blueprint)
 
 
 def main(argv):
@@ -47,5 +37,5 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    #main(sys.argv[1:])
-    read_json()
+    main(sys.argv[1:])
+
