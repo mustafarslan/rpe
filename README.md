@@ -39,19 +39,19 @@ Rest API Performance Experiment
 
 ## To run project with client
 
-1) For RPE Backend, install dependencies with following:
+- For RPE Backend, install dependencies with following:
 
 ```python
     pip3 install -r requirements.txt
 ```
 
-2) For RPE Client, install dependencies with following:
+- For RPE Client, install dependencies with following:
 
 ``` 
     npm install
 ```
 
-3) RPE Backend uses MongoDB and Elastic Search as docker image. Please pull images as shown below
+- RPE Backend uses MongoDB and Elastic Search as docker image. Please pull images as shown below
 and then create container instances as shown above:
 
 ```
@@ -61,43 +61,43 @@ and then create container instances as shown above:
 
 ( Once you have finished downloading images please, run container instances)
 
-4) Inside RPE Backend, for development purposes, under resources folder json file named "sample.json"
+- Inside RPE Backend, for development purposes, under resources folder json file named "sample.json"
 has been used. To use different json file please change your file name to "sample.json" and then
 carry it under resources folder.
 
-5) To run RPE Backend , please run following command:
+- To run RPE Backend , please run following command:
 
 ```python
     python3 server.py -h 0.0.0.0 -p 1080
 ```
 
-5) To store all the information inside json file in MongoDB, you are required to run following REST API
+- To store all the information inside json file in MongoDB, you are required to run following REST API
 to commit each object to MongoDB
 
 ```
     GET http://localhost:1080/createdb
 ```
 
-6) You are required to sync all your data in MongoDB with Elastic Search Service, to do that
+- You are required to sync all your data in MongoDB with Elastic Search Service, to do that
 please run following REST API: 
 
 ```
     GET localhost:1080/synctoelastic
 ```
 
-7) Once RPE Backend operations are completed, you can start RPE Client by following command:
+- Once RPE Backend operations are completed, you can start RPE Client by following command:
 
 ```
     npm start
 ```
 
-8) After RPE Client compilation is completed, on your browser, please go to following address:
+- After RPE Client compilation is completed, on your browser, please go to following address:
 
 ```
     http://localhost:4200
 ```
 
-9) To test RPE application, please go through following options in order:
+- To test RPE application, please go through following options in order:
 ```
     - First, choose a date 
     - Second, choose a website name from dropdown menu
