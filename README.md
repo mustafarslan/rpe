@@ -11,6 +11,7 @@ Rest API Performance Experiment
 - ElasticSearch as Docker image
 - tqdm
 - Flask-Cors
+- Pandas
 
 ### Frontend
 - Angular
